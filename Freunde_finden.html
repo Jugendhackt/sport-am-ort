@@ -1,0 +1,23 @@
+<html>
+<head>
+	<meta charset="UTF-8">
+<title>
+Freunde finden
+</title>
+</head>
+<body>
+Ich suche im Umkreis von <input id="MyInput" onchange="zeige_Freunde()" type="number" name="fname"> km.
+	<div id="demo"/>
+	<script>
+		function zeige_Freunde() {
+			var x =
+				document.getElementById("MyInput").value;
+			if(x<6){
+			document.getElementById("demo").innerHTML="Es sind keine neuen Freunde in der nähe:(";
+			}else{
+			document.getElementById("demo").innerHTML='<a href="">Benutzer3</a><br><a href="">Benutzer4</a><br>';
+			}
+		}
+	</script>
+</body>
+</html>
