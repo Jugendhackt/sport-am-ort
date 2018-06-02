@@ -1,0 +1,16 @@
+<html>
+<head>
+<h3>Chat Session<h3>
+</head>
+<body>
+<input type="text" name="nachricht" id="nachricht" value="">	
+<button type="button" onclick="abschicken()">Abschicken!</button>
+<section id ="chat"></section>	
+	
+</body>
+<script> 
+socket = 
+
+
+</script>
+</html>

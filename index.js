@@ -4,7 +4,14 @@ var passwort = document.getElementById("passwort").value;
 var params = {
 		
 		url:'http://localHost:8080/function/einloggen?username='+ username + '&passwort='+ passwort,
-		sucsess:function(result){alert("JAAA")}
+		success:function(result){
+			
+			location.href = 'http://localHost:8080/Startseite.html'
+			
+		},
+		error:	function(result){ alert('Falsche Eingaben') }
+
+		
 		
 	}
 jQuery.ajax(params);
