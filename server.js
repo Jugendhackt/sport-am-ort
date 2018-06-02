@@ -1,9 +1,19 @@
 var express = require('express')
 var app = express()
+var io = require('socket.io').listen
+var server = require('http').createServer(app)
+
+//io.sockets.on('connection', function(socket,username){
+//	socket.on('neuerClient',function(username){ 
+//       socket.username = username
+//
+//	})
+		
+//})
 
 app.get('/',function(req,res){
 	
-	//res.send("Hallowelt")
+	//res.send("Hallowelt")	
 	res.setHeader('contentType','html');
 	res.sendFile(__dirname +'/index.html')
 	
@@ -41,6 +51,14 @@ app.get('/function/einloggen',function(req,res){
 	}
 	
 	
+	
+});
+
+
+app.get('/Startseite.html',function(req,res){
+	res.setHeader('contentType','html');
+	res.sendFile(__dirname +'/Startseite.html')
+		
 	
 });
 
