@@ -6,12 +6,20 @@ Freunde finden
 </title>
 	<style>
 		body{
-		text-align: center;
+			max-width: 600px;
+		margin: 0 auto;
+			position:relative;
+			text-align: center;
+		}
+		#Logo{
+			position:absolute;
+			left:0;
 		}
 	</style>
 </head>
 <body>
-	<h1>Freunde finden</h1><br>
+<img id="Logo" src="Bilder/Logo.png" alt="Logo" height="103" width="103"/>
+	<h1>Freunde finden</h1><br><br><br>
 Ich suche im Umkreis von <input id="MyInput" onchange="zeige_Freunde()" type="number" name="fname"/> km.<br>
 Ich wohne in <input type="text"/> .
 	<div id="demo"/>
