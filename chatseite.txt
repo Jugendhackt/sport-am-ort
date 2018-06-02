@@ -1,0 +1,25 @@
+<html>
+<head>
+<title>
+Chat session 
+</title>
+	<style>
+		body{
+			position:relative;
+			text-align: center;
+		}
+		#Nachrichten{
+			position:absolute;
+			right:0;
+		}
+	</style>
+</head>
+<body>
+	<img id="Nachrichten" src="Bilder/symbol_brief.gif" alt="Brief" height="70" width="70">
+	<h1>Name des Benutzers</h1>
+	
+<a href="">Benutzer1</a><br>
+<a href="">Benutzer2</a><br>
+<a href="">Freunde finden</a><br>
+</body>
+</html>

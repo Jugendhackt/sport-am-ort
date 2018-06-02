@@ -3,13 +3,18 @@ var app = express()
 var io = require('socket.io').listen
 var server = require('http').createServer(app)
 
-//io.sockets.on('connection', function(socket,username){
-//	socket.on('neuerClient',function(username){ 
-//       socket.username = username
-//
-//	})
+io.sockets.on('connection', function(socket,username){
+	socket.on('neuerClient',function(username){ 
+       socket.username = username
+	   
+	socket.broadcast.emit('neuerClient', username)
+	})
+	socket.on('neueNachricht',function(nachricht)
+	
+	socket.broadcast('neueNachricht',{username:socket.username , nachricht:nachricht})
+	)
 		
-//})
+})
 
 app.get('/',function(req,res){
 	
@@ -26,6 +31,14 @@ app.get('/index.js',function(req,res){
 	
 	
 });
+app.get('/Bilder/symbol_brief.gif',function(req,res){
+		res.setHeader('contentType','image/png');
+
+		res.sendFile(__dirname +'/Bilder/symbol_brief.gif')
+	
+	
+});
+
 app.get('/einloggen',function(req,res){
 	
 	res.send("Willkommen!")
