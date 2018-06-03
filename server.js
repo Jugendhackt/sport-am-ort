@@ -1,16 +1,11 @@
 var app = require('express')(),
-	server = require('http').createServer(app),
-	io = require('socket.io').listen(server)
-
-	
-
+server = require('http').createServer(app),
+io = require('socket.io').listen(server)	
 console.log('node server started!');
-
-
 
 app.get('/',function(req,res){
 	
-	//res.send("Hallowelt")	
+	
 	res.setHeader('contentType','html');
 	res.sendFile(__dirname +'/index.html')
 	
@@ -79,14 +74,19 @@ app.get('/Bilder/bild5.jpg',function(req,res){
 	
 	
 });
+app.get('/Bilder/Logo.png',function(req,res){
+		res.setHeader('contentType','image/png');
 
+		res.sendFile(__dirname +'/Bilder/Logo.png')
+	
+	
+});
 app.get('/einloggen',function(req,res){
 	
 	res.send("Willkommen!")
 	
 	
 });
-
 app.get('/function/einloggen',function(req,res){
 	var username = req.query.username;
 	var passwort = req.query.passwort;
@@ -132,7 +132,6 @@ app.get('/Freunde_finden.html',function(req,res){
 	
 });
 
-
 io.sockets.on('connection', function(socket,username){
 	
 	socket.on('neuerClient',function(username){ 
@@ -142,12 +141,8 @@ io.sockets.on('connection', function(socket,username){
 	})
 	socket.on('neueNachricht',function(nachricht){
 		
-		socket.broadcast.emit('neueNachricht',{username:socket.username , nachricht:nachricht})
-		
-	})
-	
-	
-		
+		socket.broadcast.emit('neueNachricht',{username:socket.username , nachricht:nachricht})	
+	})		
 })
 
 
