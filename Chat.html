@@ -1,0 +1,76 @@
+<html>
+<head>
+	<meta charset="UTF-8"/>
+<title>
+Mein Profil
+	</title>
+	<style>
+		body{
+			max-width: 600px;
+		margin: 0 auto;
+			position:relative;
+			text-align: center;
+		}
+		#Logo{
+			position:absolute;
+			left:0;
+		}
+	.speech-bubble-left { 
+		position: relative; 
+		width: 40%;
+		padding: 20px;
+		background: #7ac6ff; border-radius: .4em;
+		} 
+	.speech-bubble-left:after {
+		content: '';
+		position: absolute;
+		left: 0;
+		top: 50%;
+		width: 0;
+		height: 0;
+		border: 20px solid transparent;
+		border-right-color: #7ac6ff;
+		border-left: 0;
+		margin-top: -20px; 
+		margin-left: -20px; }
+	
+	.speech-bubble-right { 
+		position: relative; 
+		margin-left:60%;
+		padding: 20px;
+		width:40%;
+		background: #7ac6ff; border-radius: .4em;
+		} 
+	.speech-bubble-right:after {
+		content: '';
+		position: absolute;
+		right: 0;
+		top: 50%;
+		width: 0;
+		height: 0;
+		border: 20px solid transparent;
+		border-left-color: #7ac6ff;
+		border-right: 0;
+		margin-top: -20px; 
+		margin-right: -20px; }
+		.green
+		{
+		background: #5aeb6d;
+		}
+	</style>
+</head>
+<body>
+<img id="Logo" src="Bilder/Logo.png" alt="Logo" height="103" width="103"/>
+	<h1>Moritz</h1><br><br><br>
+	<div class="speech-bubble-left"> Hallo lass uns morgen zum Sport machen treffen.</div>
+	<div class="speech-bubble-right"> Ja gerne.</div>
+	<div class="speech-bubble-left">Wo wollen wir uns treffen?</div>
+	<div class="speech-bubble-right">Bei der Sporthalle</div>
+	<div class="speech-bubble-left">Und wann?</div>
+	<div class="speech-bubble-right">13:00?</div>
+	<div class="speech-bubble-left">Ist Ok.</div>
+	<div class="speech-bubble-right">Dann bis Morgen:)</div><br><br>
+	<div class="green">Du hast dich mit Moritz getroffen +5 Punkt</div><br><br>
+	<input type="text"/> <button type="button" onclick="alert('Nachricht wurde versendet')">Senden</button>
+</body>
+</html>
