@@ -1,24 +1,12 @@
-var express = require('express')
-var app = express()
-var server = require('http').createServer(app)
-var io = require('socket.io').listen(server)
+var app = require('express')(),
+	server = require('http').createServer(app),
+	io = require('socket.io').listen(server)
+
+	
+
+console.log('node server started!');
 
 
-io.sockets.on('connection', function(socket,username){
-	socket.on('neuerClient',function(username){ 
-       socket.username = username
-	   
-	socket.broadcast.emit('neuerClient', username)
-	})
-	socket.on('neueNachricht',function(nachricht){
-		
-		socket.broadcast.emit('neueNachricht',{username:socket.username , nachricht:nachricht})
-		
-	})
-	
-	
-		
-})
 
 app.get('/',function(req,res){
 	
@@ -35,10 +23,59 @@ app.get('/index.js',function(req,res){
 	
 	
 });
+app.get('/socket.io.js',function(req,res){
+		res.setHeader('contentType','application/javascript');
+
+		res.sendFile(__dirname +'/socket.io.js')
+	
+	
+});
+app.get('/socket.io.min.js',function(req,res){
+		res.setHeader('contentType','application/javascript');
+
+		res.sendFile(__dirname +'/socket.io.min.js')
+	
+	
+});
 app.get('/Bilder/symbol_brief.gif',function(req,res){
 		res.setHeader('contentType','image/png');
 
 		res.sendFile(__dirname +'/Bilder/symbol_brief.gif')
+	
+	
+});
+app.get('/Bilder/bild1.jpg',function(req,res){
+		res.setHeader('contentType','image/png');
+
+		res.sendFile(__dirname +'/Bilder/bild1.jpg')
+	
+	
+});
+app.get('/Bilder/bild2.jpg',function(req,res){
+		res.setHeader('contentType','image/png');
+
+		res.sendFile(__dirname +'/Bilder/bild2.jpg')
+	
+	
+});
+app.get('/Bilder/bild3.jpg',function(req,res){
+		res.setHeader('contentType','image/png');
+
+		res.sendFile(__dirname +'/Bilder/bild3.jpg')
+	
+	
+});
+app.get('/Bilder/bild4.jpg',function(req,res){
+		res.setHeader('contentType','image/png');
+
+		res.sendFile(__dirname +'/Bilder/bild4.jpg')
+	
+	
+});
+app.get('/Bilder/bild5.jpg',function(req,res){
+		res.setHeader('contentType','image/png');
+
+		res.sendFile(__dirname +'/Bilder/bild5.jpg')
 	
 	
 });
@@ -95,4 +132,23 @@ app.get('/Freunde_finden.html',function(req,res){
 	
 });
 
-app.listen(8080);
+
+io.sockets.on('connection', function(socket,username){
+	
+	socket.on('neuerClient',function(username){ 
+       socket.username = username
+	   console.log(socket.id)
+	socket.broadcast.emit('neuerClient', username)
+	})
+	socket.on('neueNachricht',function(nachricht){
+		
+		socket.broadcast.emit('neueNachricht',{username:socket.username , nachricht:nachricht})
+		
+	})
+	
+	
+		
+})
+
+
+server.listen(8080)
